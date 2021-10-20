@@ -1,42 +1,55 @@
-const getMake = async () => {
-    try {
-      const url = `http://makeup-api.herokuapp.com/api/v1/products.json/`;
-      const res = await fetch(url);
-      const makeup = await res.json();
-      createMakeUpCard(makeup);
-      // console.log(makeup);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+const select = document.querySelectorAll("#field-select");
+const input = document.querySelector("#field1-input");
+const output = document.querySelector("#field2-input");
+
+fetch("https://api.frankfurter.app/currencies", {
   
-  function createMakeUpCard(makeup) {
-    console.log(makeup);
-    const html = makeup
-      .map((user) => {
-        return `
-        <div class="made">
-        <div class='makeup'>
-        <p > <img src="${user.image_link}" alt="${user.name}" srcset="" class='img-container'></p>
-        <div class="info">
-        <p class="text"><b>Id </b> :${user.id} </p>
-        <p class="type"><b>Brand </b>:  ${user.brand} </p>
-        <p class="name"><b>Name </b>:  ${user.name} </p>
-        <p class="number"><b>Price</b> :  ${user.price} </p>
-        <p class="name"><b>Currency</b> : ${user.currency} </p>
-        <p class="name"><b>Rating</b> : ${user.rating} </p>
-       <p><b>Description </b>:  ${user.description}</p>
-        </div>
-        <p><b>Product-link </b>:  <a href="${user.product_link}" target="_blank"> ${user.product_link}</a></p>
-        
-        </div>
-        
-        </div>
-        `;
-      })
-      .join("");
-    console.log(html);
-    document.querySelector("#app").innerHTML = html;
+   method: "GET",
+
+})
+  .then((data) => data.json())
+  .then((data) => loadCountryName(data));
+
+// loading the country Names
+function loadCountryName(data) {
+  const currencyName = Object.entries(data);
+
+  for (let i = 0; i < currencyName.length; i++) {
+    select[0].innerHTML += `<option value="${currencyName[i][0]}">${currencyName[i][0]} : ${currencyName[i][1]}</option>`;
+    select[1].innerHTML += `<option value="${currencyName[i][0]}">${currencyName[i][0]} : ${currencyName[i][1]}</option>`;
   }
+}
+
+//To Update the value when we Select and If user choose the same currency to aleart them to change
+function updateValue() {
   
-  getMake();
+  let currency1 = select[0].value;
+  let currency2 = select[1].value;
+  
+  let inputValue = input.value;
+
+  if (currency1 != currency2) 
+  {
+   convertCurrency(currency1, currency2, inputValue);
+  } 
+  else if (inputValue <= 0) 
+  {
+    alert("Please Enter Correct value !!!");
+  } 
+  else 
+  {
+    alert("Please choose different Currency !!!");
+  }
+}
+
+// Converting the Currency
+function convertCurrency(currency1, currency2, inputValue) {
+  fetch(
+    `https://api.frankfurter.app/latest?amount=${inputValue}&from=${currency1}&to=${currency2}`
+  )
+    .then((data) => data.json())
+    .then((data) => {
+      console.log(Object.values(data.rates)[0]);
+      output.value = Object.values(data.rates)[0];
+    });
+}
