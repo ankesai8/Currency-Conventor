@@ -11,11 +11,12 @@ body {
   font-family: "Nunito Sans", sans-serif;
   background-image: linear-gradient(
     to right top,
-    #335796,
+    #335796
     #0085c4,
     #00b0bd,
     #00d480,
     #a8eb12
+  
   );
 }
 
