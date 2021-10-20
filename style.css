@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #ebeb0d;
+  background: -webkit-linear-gradient(to right, #969599, #969599);
+  background: linear-gradient(to right, #D4D3DD, #EFEFBB);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'arial black';
+  margin: 0;
+}
+h1 {
+  letter-spacing: 3px;
+}
+.makeup {
+  background-color: #eee;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(100, 100, 100, 0.5);
+  margin: 42px;
+  padding: 21px;
+  text-align: center;   
+}
+.makeup .img-container {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  text-align: center;
+}
+.makeup .img-container img {
+  margin-top: 20px;
+  max-width: 90%;
+}
+.makeup .info {
+  margin-top: 20px;
+}
+.makeup .number {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-size: 0.8em;
+  padding: 5px 10px;
+}
+.makeup .name {
+  margin: 15px 0 7px;
+  letter-spacing: 1px;
+}
+.makeup .rating {
+  margin: 15px 0 7px;
+  letter-spacing: 1px;
+}
+.makeup .id{
+  margin: 15px 0 7px;
+  letter-spacing: 1px;
+}
+.makeup .currency{
+  margin: 15px 0 7px;
+  letter-spacing: 1px;
+}
+
+h1{
+  font-size: 4rem;
+  color: yellowgreen;
+  
+}
+.made {
+  transition: transform .1s;  
+}
+
