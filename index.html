@@ -1,19 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="Mirthun" content="Image Generator" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="money.png" type="image/x-icon" />
+    <title>Currency Conventor</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="currency-conventor-outer">
+      
+      <div class="currency-conventor">
+     
+        <h1 class="heading">Currency Conventor</h1>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Make-Up</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Make-UP</h1>
-    <div id="app" class="container"></div>
-    <a href="http://" target="_blank"></a>
+        <!-- Field1 Currency -->
+        <div class="field">
+         
+          <div class="col-left">
+            <select id="field-select" onchange="updateValue()">
+            </select>
+          </div>
 
-<script src="script.js"></script>
-</body>
+         
+          <div class="col-right">
+            <select id="field-select" onchange="updateValue()">
+              <option selected>Choose</option>
+            </select>
+          </div>
 
+        </div>
+
+        <!-- Field2 Currency -->
+        <div class="field">
+         
+          <div class="col-left">
+            <input type="number" class="currency-input" id="field1-input" onchange="updateValue()" placeholder="0" />
+          </div>
+
+          <!-- Col Right -->
+          <div class="col-right">
+            <input type="number"class="currency-input" id="field2-input" placeholder="0" disabled />
+          </div>
+        </div>
+        <div class="button-summit">
+          <button class="convert" onclick="updateValue()">Convert</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
